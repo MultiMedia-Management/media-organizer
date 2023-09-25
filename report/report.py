@@ -5,7 +5,9 @@ import csv
 
 def dump_content_in_csv_file(src):
     output_csv_filename = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
-    path_normalized = src.replace("/","-")
+    # Replace modified in order to cover windows path,
+    # now it's working on both Operating Systems.
+    path_normalized = src.replace("/","-").replace("\\","-").replace(":","")
     with open(config.BASE_REPORT_DIR + "/file_report_" + path_normalized + "_" + output_csv_filename + ".csv", "w", newline='') as file_csv:
         writer = csv.writer(file_csv)
         for row in config.list_files_info:

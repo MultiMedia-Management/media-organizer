@@ -1,7 +1,23 @@
+"""
+This module is responsible for the basic configuration.
+"""
 import os
 import json
 import sys
+from shutil import which
 from config import config
+
+
+def check_requirements():
+    """
+    TODO
+    """
+    binary_path = which("exiftool")
+    if binary_path is None:
+        print("You need to install exiftool")
+        print("Please, check the link below for more details")
+        print("https://github.com/MultiMedia-Management/media-organizer")
+        sys.exit()
 
 
 def standard_conf_file():
@@ -18,6 +34,7 @@ def standard_conf_file():
     else:
         # print("conf file is there")
         pass
+
 
 def standard_report_dir():
     """
@@ -37,7 +54,7 @@ def setup_target_dir():
     home_dir = os.path.expanduser("~")
 
     base_dir = input("Please, type the path to the dir that will be used to store the data [~/my_memories]: ")
-    if (base_dir == ""):
+    if base_dir == "":
         base_dir = home_dir + "/my_memories"
 
     print(base_dir)
@@ -47,7 +64,6 @@ def setup_target_dir():
         update_conf_file("base_dir", base_dir)
     else:
         print("please, fix the base_dir path")
-    pass
 
 
 def update_conf_file(field, path):
@@ -93,5 +109,5 @@ def check_target_dir():
         print("'./photo_organizer setup target-dir' to setup properly the target directory.")
         print("exiting ...")
         sys.exit()
-    
+
     return target_dir

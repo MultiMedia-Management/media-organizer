@@ -7,7 +7,7 @@ from db_operation import db_reload
 
 setup_env.standard_conf_file()
 setup_env.standard_report_dir()
-
+setup_env.check_requirements()
 
 @click.group()
 def main():

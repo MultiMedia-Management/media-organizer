@@ -1,8 +1,11 @@
+"""
+Module responsible for all the files operation
+"""
 import hashlib
-from setup_env import setup_env
 import os
-from db_operation import db_operation
 import shutil
+from setup_env import setup_env
+from db_operation import db_operation
 from config import config
 from general_format import general_format
 
@@ -57,7 +60,8 @@ def copy_file(file_type, SOURCE_FILE_PATH, year, month, final_file_name):
 
     hash_source = return_hash_from_file(SOURCE_FILE_PATH)
 
-    if db_operation.check_value_in_db(hash_source, SOURCE_FILE_PATH):
+    # if db_operation.check_value_in_db(hash_source, SOURCE_FILE_PATH):
+    if db_operation.check_value_in_db(hash_source):
         # print("Found in the db. {} and {}".format(hash_source, SOURCE_FILE_PATH))
         general_format.formated_output("duplicated", hash_source, SOURCE_FILE_PATH, "")
     else:

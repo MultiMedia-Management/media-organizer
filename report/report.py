@@ -31,12 +31,12 @@ def create_script_to_remove_new_files(output_csv_filename):
     if len(new_list_final_lnx) > 0:
         with open(config.BASE_REPORT_DIR + "/delete_copied_new_files__" + output_csv_filename + ".sh", "w", newline='', encoding="utf-8") as file:
             for b in new_list_final_lnx:
-                file.write("{} '{}'\n".format(b[0], b[1]))
+                file.write("{} \"{}\"\n".format(b[0], b[1]))
 
     if len(new_list_final_win) > 0:
         with open(config.BASE_REPORT_DIR + "/delete_copied_new_files__" + output_csv_filename + ".bat", "w", newline='', encoding="utf-8") as file:
             for b in new_list_final_win:
-                file.write("{} '{}'\n".format(b[0], b[1]))
+                file.write("{} \"{}\"\n".format(b[0], b[1].replace("/","\\")))
 
 
 def create_script_to_remove_duplicated_files(output_csv_filename):
@@ -63,12 +63,12 @@ def create_script_to_remove_duplicated_files(output_csv_filename):
     if len(new_list_final_lnx) > 0:
         with open(config.BASE_REPORT_DIR + "/duplicated_skipped_files__" + output_csv_filename + ".sh", "w", newline='', encoding="utf-8") as file:
             for b in new_list_final_lnx:
-                file.write("{} '{}'\n".format(b[0], b[1]))
+                file.write("{} \"{}\"\n".format(b[0], b[1]))
 
     if len(new_list_final_win) > 0:
         with open(config.BASE_REPORT_DIR + "/duplicated_skipped_files__" + output_csv_filename + ".bat", "w", newline='', encoding="utf-8") as file:
             for b in new_list_final_win:
-                file.write("{} '{}'\n".format(b[0], b[1]))
+                file.write("{} \"{}\"\n".format(b[0], b[1].replace("/","\\")))
 
 
 def dump_content_in_csv_file(src):

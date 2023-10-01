@@ -1,13 +1,21 @@
+"""
+Module responsible to handle all the operations regarding
+to the DB/JSON file.
+"""
+
 # global db_in_memory
 
-from config import config
 import json
 import os
-from setup_env import setup_env
+from config import config
+# from setup_env import setup_env
 
-def check_value_in_db(hash_source, SOURCE_FILE_PATH):
+
+# def check_value_in_db(hash_source, SOURCE_FILE_PATH):
+def check_value_in_db(hash_source):
     """
-    TODO
+    This will return True if the hash was found in the structure,
+    and False and the hash was not found.
     """
 
     # Checking the # of operations before dump the data
@@ -27,8 +35,7 @@ def check_value_in_db(hash_source, SOURCE_FILE_PATH):
     if cont == 0:
         config.count_valid_insert_operation = config.count_valid_insert_operation + 1
         return False
-    else:
-        return True
+    return True
 
 
 def return_file_path_from_db(hash_source):
@@ -39,6 +46,7 @@ def return_file_path_from_db(hash_source):
         # print("here")
         if element["hash"] == hash_source:
             return element["filename"]
+        return None
 
 
 def json_model():
@@ -47,7 +55,7 @@ def json_model():
     """
 
     try:
-        with open(config.JSON_DB, "r") as file_obj:
+        with open(config.JSON_DB, "r", encoding="utf-8") as file_obj:
             config.db_in_memory = json.load(file_obj)
             # print(json.dumps(aux, indent=4))
     except FileNotFoundError:
@@ -56,24 +64,24 @@ def json_model():
 
 
 def save_db_in_disk():
-    with open(config.JSON_DB, "w") as file_obj:
+    """
+    It will save the information from memory to disk.
+    """
+    with open(config.JSON_DB, "w", encoding="utf-8") as file_obj:
         file_obj.write(json.dumps(config.db_in_memory, indent=4))
 
 
 def purge_db_in_disk():
     """
-    TODO
+    Removing the JSON file "~/.mo_hash.json" used as a DB at this moment.
     """
     aux = input("Are you sure you would like to purge your db? (y/n): ")
 
     if aux == "y":
-        # print("standard conf file")
-        dic_conf = {}
 
-        with open(config.JSON_DB, "w") as file_obj:
-            file_obj.write(json.dumps(dic_conf, indent=4))
+        # Just removing the file
+        if os.path.isfile(config.JSON_DB):
+            os.remove(config.JSON_DB)
+
     else:
         print("Leaving your DB untouched!")
-
-
-

@@ -5,7 +5,7 @@ import os
 import json
 import sys
 from shutil import which
-from config import config
+from media_organizer.config import config
 
 
 def check_requirements():

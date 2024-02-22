@@ -21,6 +21,11 @@ In order to proceed, there are two approaches here that we have to keep in mind.
 
 <br>
 
+## Requirement
+Please, download and/or install the `exiftool` in your machine, you can access this [link](https://exiftool.org/) to obtain more information of how to proceed based on your Operating System.
+
+<br>
+
 ## First Approach
 You have already something organized and you have a folder for that, for example `/home/user/my_memories`. That said, let's use the current folder as our `target-dir`
 - You can set a target dir using `mo.py setup target-dir`.

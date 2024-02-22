@@ -4,10 +4,10 @@ Module responsible for all the files operation
 import hashlib
 import os
 import shutil
-from setup_env import setup_env
-from db_operation import db_operation
-from config import config
-from general_format import general_format
+from media_organizer.setup_env import setup_env
+from media_organizer.db_operation import db_operation
+from media_organizer.config import config
+from media_organizer.general_format import general_format
 
 
 def return_hash_from_file(FILE_PATH):

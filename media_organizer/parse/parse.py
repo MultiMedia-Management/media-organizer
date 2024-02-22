@@ -1,9 +1,9 @@
 import json
 import click
-from execution import execution
-from setup_env import setup_env
-from db_operation import db_operation
-from db_operation import db_reload
+from media_organizer.execution import execution
+from media_organizer.setup_env import setup_env
+from media_organizer.db_operation import db_operation
+from media_organizer.db_operation import db_reload
 
 setup_env.standard_conf_file()
 setup_env.standard_report_dir()

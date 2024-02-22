@@ -4,7 +4,7 @@ Module responsible for reporting purposes
 
 import csv
 from datetime import datetime
-from config import config
+from media_organizer.config import config
 
 
 def create_script_to_remove_new_files(output_csv_filename):

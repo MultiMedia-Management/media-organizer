@@ -1,5 +1,5 @@
-from config import config
-from db_operation import db_operation
+from media_organizer.config import config
+from media_organizer.db_operation import db_operation
 from datetime import datetime
 
 

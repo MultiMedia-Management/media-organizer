@@ -13,14 +13,14 @@ from datetime import datetime
 import plum
 import exiftool
 from exif import Image
-from setup_env import setup_env
-from db_operation import db_operation
-from file_operation import file_operation
-from general_format import general_format
-from report import report
-from config import config
-from metadata import metadata
-from utils import utils
+from media_organizer.setup_env import setup_env
+from media_organizer.db_operation import db_operation
+from media_organizer.file_operation import file_operation
+from media_organizer.general_format import general_format
+from media_organizer.report import report
+from media_organizer.config import config
+from media_organizer.metadata import metadata
+from media_organizer.utils import utils
 
 def import_content(src):
     """

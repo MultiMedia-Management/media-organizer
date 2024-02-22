@@ -7,7 +7,7 @@ to the DB/JSON file.
 
 import json
 import os
-from config import config
+from media_organizer.config import config
 # from setup_env import setup_env
 
 

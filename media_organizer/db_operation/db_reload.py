@@ -1,10 +1,10 @@
-from setup_env import setup_env
-from report import report
+from media_organizer.setup_env import setup_env
+from media_organizer.report import report
 import os
-from general_format import general_format
-from file_operation import file_operation
-from config import config
-from db_operation import db_operation
+from media_organizer.general_format import general_format
+from media_organizer.file_operation import file_operation
+from media_organizer.config import config
+from media_organizer.db_operation import db_operation
 
 def reload_db_from_target_dir():
     """
